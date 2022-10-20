@@ -28,7 +28,7 @@
 #
 # Variável da Data Inicial para calcular o tempo de execução do script (VARIÁVEL MELHORADA)
 # opção do comando date: +%T (Time)
-HORAINICIAL=$`date +%T`
+HORAINICIAL=$(date +%T)
 #
 # Variáveis para validar o ambiente, verificando se o usuário é "root", versão do ubuntu e kernel
 # opções do comando id: -u (user)
