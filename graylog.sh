@@ -28,7 +28,7 @@
 #
 # Variável da Data Inicial para calcular o tempo de execução do script (VARIÁVEL MELHORADA)
 # opção do comando date: +%T (Time)
-HORAINICIAL=$(date +%T)
+HORAINICIAL=$`date +%T`
 #
 # Variáveis para validar o ambiente, verificando se o usuário é "root", versão do ubuntu e kernel
 # opções do comando id: -u (user)
@@ -39,9 +39,9 @@ HORAINICIAL=$(date +%T)
 # opção do shell script: acento crase ` ` = Executa comandos numa subshell, retornando o resultado
 # opção do shell script: aspas simples ' ' = Protege uma string completamente (nenhum caractere é especial)
 # opção do shell script: aspas duplas " " = Protege uma string, mas reconhece $, \ e ` como especiais
-USUARIO=$(id -u)
-UBUNTU=$(lsb_release -rs)
-KERNEL=$(uname -r | cut -d'.' -f1,2)
+USUARIO=$`id -u`
+UBUNTU=$`lsb_release -rs`
+KERNEL=$`uname -r | cut -d'.' -f1,2`
 #
 # Variável do caminho do Log dos Script utilizado nesse curso (VARIÁVEL MELHORADA)
 # opções do comando cut: -d (delimiter), -f (fields)
@@ -266,8 +266,11 @@ sleep 5
 echo -e "Habilitando e Iniciando o Serviço Graylog, aguarde..."
 	# opção do comando: &>> (redirecionar a saída padrão)
 	systemctl enable graylog-server &>> $LOG
+	sleep 5
 	systemctl restart graylog-server &>> $LOG
+	sleep 5
     systemctl status graylog-server &>> $LOG
+	sleep 5
 echo -e "Serviço do Graylog iniciado com sucesso!!!, continuando com o script...\n"
 sleep 5
 #
